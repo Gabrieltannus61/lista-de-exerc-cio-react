@@ -1,0 +1,274 @@
+body {
+  font-family: Arial, sans-serif; 
+  background-color: #333; 
+  color: #eee; 
+  margin: 20px; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  color: #9a86ff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+}
+
+.column-left {
+  float: left;
+  width: 40%;
+  padding: 10px;
+}
+
+.column-right {
+  float: left;
+  width: 60%;
+  padding: 10px;
+}
+
+.column-grid-2 .component-box {
+  float: left;
+  width: 48%; 
+  margin: 1%;
+}
+
+.component-box {
+  background-color: #444;
+  border: 1px solid #666;
+  padding: 15px;
+  margin-bottom: 20px;
+  overflow: hidden; 
+}
+
+.component-header h3 {
+  display: inline-block; 
+}
+.component-header .button {
+  float: right; 
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: #555;
+  color: #eee;
+  border: 1px solid #777;
+}
+
+.button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.button-green { background-color: #4CAF50; color: white; }
+.button-red { background-color: #f44336; color: white; }
+.button-blue { background-color: #2196F3; color: white; }
+.button-blue-dark { background-color: #0d47a1; color: white; }
+.button-purple { background-color: #9a86ff; color: white; }
+.button-gray { background-color: #6c757d; color: white; }
+.button-full { width: 100%; }
+
+.list-container {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.list-item {
+  padding: 8px;
+  background-color: #555;
+  margin-bottom: 5px;
+}
+.list-item-italic {
+  font-style: italic;
+  color: #aaa;
+}
+.list-item-completed {
+  text-decoration: line-through;
+  color: #888;
+  padding: 4px 0;
+}
+
+.status-box {
+  background-color: #333;
+  border: 1px dashed #9a86ff;
+  padding: 15px;
+  margin-top: 20px;
+}
+.status-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.stat-label {
+  margin-bottom: 5px;
+}
+.stat-label span:last-child {
+  float: right;
+}
+
+.stat-bar-container {
+  width: 100%;
+  background-color: #222;
+  height: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+}
+.stat-bar {
+  height: 100%;
+}
+.hp-green { background-color: #4CAF50; }
+.hp-yellow { background-color: #ffeb3b; }
+.hp-red { background-color: #f44336; }
+.xp-bar { background-color: #2196F3; }
+
+.gold-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.button-grid .button {
+  display: block; 
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.attribute-points {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+.attribute-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #555;
+  overflow: hidden; 
+}
+.attribute-name {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.attribute-controls {
+  float: right; 
+}
+.attribute-value {
+  display: inline-block; 
+  margin: 0 12px;
+  font-size: 1.2em;
+  width: 30px; 
+  text-align: center;
+}
+.attribute-controls .button {
+  padding: 5px 10px; 
+}
+
+.shop-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #555;
+  overflow: hidden; 
+}
+.shop-item:last-child {
+  border-bottom: none;
+}
+.shop-item .button {
+  padding: 5px 10px;
+  float: right;
+}
+
+.quest-form {
+  overflow: hidden; 
+  margin-bottom: 15px;
+}
+.quest-form input {
+  width: 80%; 
+  float: left;
+  margin-right: 5px;
+}
+.quest-form .button {
+  width: 18%; 
+  float: left;
+}
+.quest-subtitle {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1em;
+  clear: both; 
+}
+.quest-list .list-item {
+  overflow: hidden; 
+}
+.quest-complete-button {
+  padding: 2px 8px;
+  float: right;
+}
+
+.enchantment-output {
+  margin-top: 15px;
+  background-color: #333;
+  padding: 15px;
+  text-align: center;
+}
+.enchantment-output p {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3em;
+  color: #f44336;
+  font-weight: bold;
+}
+
+.party-form {
+  margin-bottom: 20px;
+}
+.party-form input,
+.party-form select {
+  margin-bottom: 5px;
+}
+.party-form .button {
+  width: 100%;
+}
+
+.list-item-party {
+  padding: 10px;
+  background-color: #555;
+  overflow: hidden; 
+}
+.party-controls {
+  float: right;
+}
+.party-controls .button {
+  padding: 2px 8px;
+  margin-left: 5px;
+}
+
+@keyframes blink-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; } 
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink-animation 1s infinite; 
+}
