@@ -1,0 +1,229 @@
+import './App.css';
+
+
+
+function Previsaotempo({ temperatura, clima, cidade, umidade, }) {
+  const getIcone = (clima) => {
+    const climas = {
+      'ensolarado': '☀️', 'nublado': '☁️', 'chuvoso': '🌧️',
+      'tempestuoso': '⛈️', 'nevando': '❄️', 'muito frio': '🥶', 
+    };
+    return climas[clima.toLowerCase()] || '🌤️';
+  };
+
+  const getCorTemperatura = (temp) => {
+    if (temp < -50) return '#4190e2';
+    if (temp < 0) return '#f5a623';
+    return '#d0021b';
+  };
+
+  return (
+    <div style={{
+      border: '1px solid #bde0fe', borderRadius: '15px', padding: '25px',
+      textAlign: 'center', 
+      background: '#e7f5ff', 
+      color: '#000', 
+      boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+    }}>
+      <h3 style={{ margin: '0 0 15px 0', fontSize: '1.2em' }}>{cidade}</h3>
+      <div style={{ fontSize: '50px', margin: '10px 0' }}>{getIcone(clima)}</div>
+      <div style={{
+        fontSize: '40px', fontWeight: 'bold', 
+        color: getCorTemperatura(temperatura), 
+        textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
+      }}>{temperatura}°C</div>
+      <p style={{ fontSize: '1.1em', margin: '10px 0' }}>{clima}</p>
+      <p style={{ fontSize: '0.9em', opacity: 0.9 }}>Umidade: {umidade}%</p>
+    </div>
+  );
+}
+
+
+function CartaoPessoa({ titulo, ano, descricao }) {
+  const cardStyle = {
+    border: '1px solid #ccc', borderRadius: '15px', padding: '25px',
+    background: '#e9ecef',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    color: '#000', 
+  };
+  return (
+    <div style={cardStyle}>
+      <h3 style={{ marginTop: 0 }}>{titulo}</h3>
+      <p><strong>Descoberta:</strong> {ano}</p>
+      <p><strong>Detalhes:</strong> {descricao}</p>
+    </div>
+  );
+}
+
+
+function Cartaopessoa({ nome, data }) {
+  const cardStyle = {
+    border: '1px solid #ddd',
+    borderRadius: '15px',
+    padding: '25px',
+    background: '#e9ecef',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    textAlign: 'center',
+    color: '#000', 
+  };
+
+  return (
+    <div style={cardStyle}>
+      <h3 style={{marginTop: 0, fontWeight: 'normal'}}>Olá Comandante,</h3>
+      <p style={{fontSize: '1.5em', fontWeight: 'bold', margin: '10px 0'}}>{nome}</p>
+      <p style={{fontSize: '0.9em', opacity: 0.8}}>Data Estelar: {data}</p>
+    </div>
+  );
+}
+
+
+function StatusMissao({ destino, distanciaTotal, distanciaPercorrida }) {
+  const progressoPercentual = Math.min((distanciaPercorrida / distanciaTotal) * 100, 100);
+
+  const cardStyle = {
+    border: '1px solid #1dd1a1',
+    borderRadius: '15px',
+    padding: '25px',
+    background: '#f0fff5',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    textAlign: 'center',
+    color: '#000', 
+  };
+
+  const progressBarContainerStyle = {
+    width: '100%',
+    backgroundColor: '#e0e0e0',
+    borderRadius: '10px',
+    marginTop: '15px',
+    overflow: 'hidden'
+  };
+
+  const progressBarFillStyle = {
+    width: `${progressoPercentual}%`,
+    height: '24px',
+    backgroundColor: '#10ac84',
+    borderRadius: '10px',
+    transition: 'width 0.5s ease-in-out',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white', 
+    fontSize: '0.8em'
+  };
+
+  return (
+    <div style={cardStyle}>
+      <h3 style={{ marginTop: 0 }}>Status da Missão</h3>
+      <p><strong>Destino:</strong> {destino}</p>
+      <p>{(distanciaPercorrida / 1000000).toFixed(0)}M / {(distanciaTotal / 1000000).toFixed(0)}M km</p>
+      
+      <div style={progressBarContainerStyle}>
+        <div style={progressBarFillStyle}>
+          {progressoPercentual.toFixed(1)}%
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+function RelatorioBordo({ eventos }) {
+  const cardStyle = {
+    border: '1px solid #fdcb6e',
+    borderRadius: '15px',
+    padding: '25px',
+    background: '#fffaf0',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    gridColumn: 'span 2',
+    color: '#000', 
+  };
+
+  const listStyle = {
+    paddingLeft: '20px',
+    textAlign: 'left',
+    margin: 0,
+    maxHeight: '200px',
+    overflowY: 'auto'
+  };
+  
+  return (
+    <div style={cardStyle}>
+      <h3 style={{ marginTop: 0 }}>Relatório de Bordo 🚀</h3>
+      <ol style={listStyle}>
+        {eventos.map((evento, index) => (
+          <li key={index} style={{
+            padding: '8px',
+            borderRadius: '5px',
+            marginBottom: '5px',
+            background: index % 2 === 0 ? '#fffaf0' : '#fef5e7'
+          }}>
+            <strong>{evento.data}:</strong> {evento.descricao}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+
+function App() {
+  const containerStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '25px',
+    padding: '25px',
+    fontFamily: 'sans-serif',
+    maxWidth: '1200px',
+    margin: '0 auto'
+  };
+
+  const headerStyle = {
+    gridColumn: '1 / -1',
+    textAlign: 'center',
+    color: '#000' 
+  };
+
+  const eventosMissao = [
+    { data: '15/08/2026', descricao: 'Lançamento da sonda "Explorer Júpiter".' },
+    { data: '20/12/2026', descricao: 'Assistência gravitacional da Terra executada.' },
+    { data: '05/03/2027', descricao: 'Comunicação com a base restabelecida após blackout solar.' },
+    { data: '10/06/2027', descricao: 'Primeiras imagens de alta resolução do asteroide Vesta.' },
+    { data: '29/09/2027', descricao: 'Entrada na esfera de influência gravitacional de Júpiter.' }
+  ];
+
+  const distanciaTotalJupiter = 628730000;
+  const distanciaPercorrida = 550000000;
+
+  return (
+    <>
+      <div style={headerStyle}>
+        <h1 style={{marginBottom: 0}}>Painel de Controle da Missão Júpiter</h1>
+      </div>
+      <div style={containerStyle}>
+        <Cartaopessoa 
+          nome="Gabriel Tannus" 
+          data = "29/09/2027"
+        />
+        <StatusMissao
+          destino="Júpiter"
+          distanciaTotal={distanciaTotalJupiter}
+          distanciaPercorrida={distanciaPercorrida}
+        />
+        <RelatorioBordo eventos={eventosMissao} />
+        <Previsaotempo
+          temperatura={-145} 
+          clima="Muito Frio"
+          cidade="Sonda Explorer Júpiter"
+          umidade={0}
+        />
+        <CartaoPessoa
+          titulo={"Planeta Júpiter"}
+          ano={"1610"}
+          descricao={"Observado pela primeira vez por Galileu Galilei. Conhecido por sua Grande Mancha Vermelha."}
+        />
+      </div>
+    </>
+  );
+}
+
+export default App;
