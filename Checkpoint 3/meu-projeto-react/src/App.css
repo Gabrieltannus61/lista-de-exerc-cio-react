@@ -14,13 +14,12 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão segura */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-black);
   color: var(--text-primary);
   overflow: hidden;
 }
 
-/* Layout Grid */
 .app-container {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -28,7 +27,6 @@ body {
   height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
   background-color: var(--bg-black);
   padding: 24px;
@@ -58,7 +56,7 @@ body {
 }
 .icon {
   font-size: 20px;
-} /* Ajuste tamanho emojis */
+}
 
 .playlist-header {
   display: flex;
@@ -103,7 +101,6 @@ body {
   color: var(--text-primary);
 }
 
-/* Conteúdo Principal */
 .main-content {
   background: linear-gradient(180deg, #222 0%, var(--bg-dark) 100%);
   grid-column: 2 / 3;
@@ -116,7 +113,6 @@ body {
   position: relative;
 }
 
-/* Top Bar */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -176,7 +172,6 @@ body {
   justify-content: center;
 }
 
-/* Grid de Músicas */
 .content-scroll {
   overflow-y: auto;
   padding: 24px;
@@ -208,7 +203,6 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Play Button no Card */
 .play-btn-card {
   position: absolute;
   bottom: 8px;
@@ -226,8 +220,8 @@ body {
   transition: 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   font-size: 20px;
-  color: black; /* Texto preto para contraste no verde */
-  padding-left: 4px; /* Ajuste visual para centralizar o triângulo */
+  color: black;
+  padding-left: 4px;
 }
 .song-card:hover .play-btn-card {
   opacity: 1;
@@ -247,7 +241,6 @@ body {
   color: var(--primary);
 }
 
-/* Player Footer */
 .player-footer {
   grid-column: 1 / 3;
   grid-row: 2 / 3;
